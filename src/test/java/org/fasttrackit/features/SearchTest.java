@@ -11,37 +11,43 @@ public class SearchTest extends BaseTest {
     private SearchSteps searchSteps;
 
     @Test
-    public void searchWithMultipleResults(){
+    public void searchWithMultipleResults() {
         searchSteps.searchForProduct("shirt");
         searchSteps.checkMultipleSearchResults("Showing all 3 results");
     }
 
     @Test
-    public void searchWithSingleResult(){
+    public void searchWithSingleResult() {
         searchSteps.searchForProduct("cap");
         searchSteps.checkSingleSearchResults("DESCRIPTION");
     }
 
     @Test
-    public void searchWithNoResult(){
+    public void searchWithNoResult() {
         searchSteps.searchForProduct("qwerty");
         searchSteps.checkIfNoSearchResults("No products were found matching your selection.");
     }
 
     @Test
-    public void searchByKeywordTest(){
+    public void searchByKeywordTest() {
         String productName = "Hoodie";
         searchSteps.searchForProduct(productName);
         searchSteps.verifyProductIsFound(productName);
     }
 
     @Test
-    public void filterByPriceLowToHigh(){
+    public void filterByPriceLowToHigh() {
         String productName = "shirt";
         searchSteps.searchForProduct(productName);
         searchSteps.sortByPrice();
         searchSteps.verifyProductPrices();
     }
 
+    @Test
+    public void searchWithSpecialCharacters() {
+        searchSteps.searchForProduct("@&^@#%^@#^%#@%^@");
+        searchSteps.checkIfNoSearchResults("No products were found matching your selection.");
 
+
+    }
 }

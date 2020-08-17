@@ -32,8 +32,8 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void invalidBillingInfo(String firstName, String lastName, String country, String address, String townName,
-                                 String countyName, String postCode, String emailAddress){
+    public void invalidBillingInfo(String team, String firstName, String lastName, String country, String address, String townName,
+                                   String countyName, String postCode, String emailAddress){
         checkoutPage.setFirstNameField(firstName);
         checkoutPage.setLastNameField(lastName);
         checkoutPage.selectCountry(country);

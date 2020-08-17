@@ -16,6 +16,21 @@ public class AdminTest extends BaseTest {
         adminSteps.loginToAdminPage("admin","parola11");
 
     }
+    @Test
+    public void invalidAdminUser() throws InterruptedException {
+        adminSteps.navigateToAdminPage();;
+        adminSteps.loginToAdminPage("admin2121", "parola11");
+    }
+    @Test
+    public void invalidAdminPass() throws InterruptedException {
+        adminSteps.navigateToAdminPage();;
+        adminSteps.loginToAdminPage("admin", "");
+    }
+    @Test
+    public void loginToAdminWithSpecialCharacters() throws InterruptedException {
+        adminSteps.navigateToAdminPage();;
+        adminSteps.loginToAdminPage("@$@$@$@$", "@$@$@$@$");
+    }
 
 
 

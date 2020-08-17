@@ -34,6 +34,7 @@ public class CartSteps {
     }
     @Step
     public void verifyProductInCart(String name){
+
         Assert.assertTrue(cartPage.checkProductExistsInCart(name)); }
     @Step
     public void addSpecificProductsToCart(){

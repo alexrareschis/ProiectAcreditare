@@ -18,6 +18,7 @@ public class AdminSteps {
         adminPage.typeUserField(user);
         adminPage.typePassField(password);
         adminPage.clickLoginButton();
+
     }
 }
 

@@ -22,33 +22,19 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void verifyCheckoutTest(){
-        loginSteps.login(Constants.USER_EMAIL, Constants.USER_PASSWORD,
-                "Hello automation.team (not automation.team? Log out)");
+        loginSteps.login("qa19team@yahoo.com", "aii123456?",
+                "Hello qa19team (not qa19team? Log out)");
         cartSteps.navigateToShop();
         cartSteps.addSpecificProductsToCart();
         cartSteps.navigateToCart();
         cartSteps.proceedToCheckout();
-        checkoutSteps.validBillingInfo("Team", "AII", "Romania",
-                "Somewhere in the City", "CLUJ",
-                "CJ","RO2020","+47451234456",Constants.USER_EMAIL);
+        checkoutSteps.validBillingInfo("A", "I", "United Kingdom (UK)",
+                "28 Clifton Gardens", "London",
+                "London","NW117EL","+47451234456","qa19team@yahoo.com");
         checkoutSteps.clickOnPlaceOrder();
-        checkoutSteps.checkOrderReceived("Thank you. Your order has been received.");
+        checkoutSteps.equals("Thank you. Your order has been received.");
 
     }
 
-    @Test
-    public void verifyCheckoutWithoutPhoneNumberTest(){
-        loginSteps.login(Constants.USER_EMAIL, Constants.USER_PASSWORD,
-                "Hello automation.team (not automation.team? Log out)");
-        cartSteps.navigateToShop();
-        cartSteps.addSpecificProductsToCart();
-        cartSteps.navigateToCart();
-        cartSteps.proceedToCheckout();
-        checkoutSteps.validBillingInfo("Team", "AII", "Romania",
-                "Somewhere in the City", "CLUJ",
-                "CJ","RO2020","",Constants.USER_EMAIL);
-        checkoutSteps.clickOnPlaceOrder();
-        checkoutSteps.verifyImpossibleToCheckout("Billing Phone is a required field.");
 
-    }
 }

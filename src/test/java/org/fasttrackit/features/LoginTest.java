@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     private LoginSteps loginSteps;
 
     @Test
-    public void testValidLoginWithEmailAddress(){
+    public void testValidLoginWithEmailAddress() {
 
         loginSteps.navigateToLogin();
         loginSteps.loginDetails(Constants.USER_EMAIL, Constants.USER_PASSWORD);
@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInvalidLogin(){
+    public void testInvalidLogin() {
         loginSteps.navigateToLogin();
         loginSteps.loginDetails(Constants.USER_EMAIL2, Constants.USER_PASSWORD2);
         loginSteps.clickRememberMe();
@@ -31,12 +31,21 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testValidLoginWithUsername(){
+    public void testValidLoginWithUsername() {
 
         loginSteps.navigateToLogin();
-        loginSteps.loginDetails("automation.team","AUTOteam2020!" );
+        loginSteps.loginDetails("automation.team", "AUTOteam2020!");
         loginSteps.clickRememberMe();
         loginSteps.clickLogin();
         loginSteps.checkIfLoggedIn("Hello automation.team (not automation.team? Log out)");
+    }
+
+    @Test
+    public void testInvalidPasswordLogin() {
+        loginSteps.navigateToLogin();
+        loginSteps.loginDetails(Constants.USER_EMAIL2, Constants.USER_PASSWORD2);
+        loginSteps.clickRememberMe();
+        loginSteps.clickLogin();
+        
     }
 }
